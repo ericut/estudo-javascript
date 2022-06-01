@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouseevent click</title>
+  </head>
+  <body>
+    Props do evento
+    <button type="button" id="click">Click aqui</button>
+  </body>
+  <script>
+    let btn = document.querySelector("button");
+
+    btn.addEventListener("click", showPosition, false);
+
+    function showPosition(event) {
+      alert("posição x é: " + event.screenX + " position y é: " + event.screenY);
+    }
+  </script>
+</html>

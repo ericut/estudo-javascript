@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouseevent ordem de execução</title>
+  </head>
+  <body>
+    <input id="input" value="Click aqui" type button />
+    <textarea id="textarea"></textarea>
+    <input type="button" onclick="textarea.value=''" value="Limpar" />
+  </body>
+  <script>
+    let input = document.getElementById("input");
+
+    input.addEventListener("click", log);
+    input.addEventListener("mousedown", log);
+    input.addEventListener("mouseup", log);
+    input.addEventListener("contextmenu", log);
+    input.addEventListener("dbclick", log);
+
+    function log(event) {
+      document.getElementById("textarea").value += event.type + " [target: " + event.which + "]\n";
+      document.getElementById("textarea").scrollTop = document.getElementById("textarea").scrollHeight;
+    }
+  </script>
+</html>

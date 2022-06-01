@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulador propriedade de elemento</title>
+  </head>
+  <body>
+    <!-- props selector -->
+    <button type="button">Click Aqui</button>
+    <a href="#">Click Aqui</a>
+  </body>
+</html>
+
+<script>
+  var btn = document.querySelector("button");
+  var link = document.querySelector("a");
+
+  btn.onclick = () => {
+    window.alert("clicou no botão");
+  };
+
+  link.onclick = () => {
+    window.alert("clicou no link");
+  };
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard events combinando teclas</title>
+  </head>
+  <body>
+    <h1>Pressione D e A juntos</h1>
+  </body>
+  <script>
+    function runDoubleKeys(func, ...codes) {
+      let pressed = new Set();
+      document.addEventListener("keydown", (event) => {
+        pressed.add(event.code);
+
+        for (let code of codes) {
+          if (!pressed.has(code)) {
+            return;
+          }
+          pressed.clear();
+          func();
+        }
+      });
+
+      document.addEventListener("keyup", (event) => pressed.delete(event.code));
+    }
+
+    runDoubleKeys(() => alert("Teclas pressionadas"), "KeyA", "KeyD");
+  </script>
+</html>

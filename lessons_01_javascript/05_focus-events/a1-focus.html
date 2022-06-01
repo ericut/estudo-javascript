@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus events</title>
+    <style>
+      .invalid {
+        border-color: red;
+      }
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Exemplo do evento focus</p>
+    <br />
+    Digite seu e-mail: <input type="email" id="email" value="" />
+    <div id="error"></div>
+  </body>
+  <script>
+    let input = document.getElementById("email");
+    input.addEventListener("blur", funcBlur);
+    input.addEventListener("focus", funcFocus);
+
+    function funcBlur(event) {
+      if (!event.target.value.includes("@")) {
+        event.target.classList.add("invalid");
+        document.getElementById("error").innerHTML = "E-mail inválido!";
+      }
+    }
+
+    function funcFocus(event) {
+      if (event.target.classList.contains("invalid")) {
+        event.target.classList.remove("invalid");
+        document.getElementById("error").innerHTML = "";
+      }
+    }
+  </script>
+</html>
